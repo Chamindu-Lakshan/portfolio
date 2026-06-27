@@ -29,6 +29,14 @@ export const metadata: Metadata = {
     siteName: "wickramasingha.dev",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: "/images/profile-color.png",
+        width: 800,
+        height: 800,
+        alt: "Chamindu Lakshan Wickramasinghe",
+      },
+    ],
   },
 };
 
@@ -79,9 +87,9 @@ function Footer() {
           Next.js &amp; Tailwind CSS.
         </p>
         <div className="flex items-center gap-4">
-          <FooterLink href="https://github.com/chamindu-wickramasinghe" label="GitHub" />
-          <FooterLink href="https://linkedin.com/in/chamindu-wickramasinghe" label="LinkedIn" />
-          <FooterLink href="mailto:chamindu@wickramasingha.dev" label="Email" />
+          <FooterLink href="https://github.com/Chamindu-Lakshan" label="GitHub" />
+          <FooterLink href="https://linkedin.com/in/chamindu-lakshan" label="LinkedIn" />
+          <FooterLink href="mailto:wickramasingha2002@gmail.com" label="Email" />
         </div>
       </div>
     </footer>
@@ -111,6 +119,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
+      data-scroll-behavior="smooth"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">

@@ -13,6 +13,7 @@ export interface Profile {
   faculty: string;
   year: string;
   email: string;
+  phone: string;
   github: string;
   linkedin: string;
   location: string;
@@ -60,6 +61,13 @@ export interface Certification {
   issuer: string;
   date: string;
   url?: string;
+  image: string;
+  verificationCode?: string;
+}
+
+export interface Skill {
+  category: string;
+  items: string[];
 }
 
 export interface SocialLink {
@@ -73,15 +81,16 @@ export interface SocialLink {
 export const profile: Profile = {
   name: "Chamindu Lakshan Wickramasinghe",
   title: "Full Stack Developer",
-  tagline: "Crafting seamless digital experiences from concept to deployment.",
-  bio: "Full Stack Developer and 3rd-Year BSc (Hons) Computer Science student at the University of Colombo, Faculty of Science. Passionate about building performant web applications, cloud-based automation systems, and developer tooling that makes everyday life easier.",
+  tagline: "Recent BSc graduate passionate about full-stack web development and business process automation.",
+  bio: "Passionate and recent BSc graduate in Physical Science from the University of Colombo, Faculty of Science. Skilled in full-stack web development and business process automation. Experienced in building dynamic applications using modern frameworks like Next.js and React, alongside cloud platforms such as Supabase and Google AppSheet. Proficient in PHP, MySQL, JavaScript, Python, Java, and C#.",
   university: "University of Colombo",
   faculty: "Faculty of Science",
-  year: "3rd Year",
-  email: "chamindu@wickramasingha.dev",
-  github: "https://github.com/chamindu-wickramasinghe",
-  linkedin: "https://linkedin.com/in/chamindu-wickramasinghe",
-  location: "Colombo, Sri Lanka",
+  year: "BSc Graduate",
+  email: "wickramasingha2002@gmail.com",
+  phone: "+94 78 3246 790",
+  github: "https://github.com/Chamindu-Lakshan",
+  linkedin: "https://linkedin.com/in/chamindu-lakshan",
+  location: "Galle, Sri Lanka",
 };
 
 /* ── Social Links ─────────────────────────────────────── */
@@ -92,29 +101,56 @@ export const socialLinks: SocialLink[] = [
   { platform: "Email", url: `mailto:${profile.email}`, icon: "Mail" },
 ];
 
+/* ── Skills ───────────────────────────────────────────── */
+
+export const skills: Skill[] = [
+  {
+    category: "Web Technologies & Frameworks",
+    items: ["HTML", "CSS", "JavaScript", "PHP", "React", "Next.js", "JHipster", "Phaser.js", "WordPress"],
+  },
+  {
+    category: "Programming Languages",
+    items: ["Python", "Java", "C#", "SQL", "TypeScript"],
+  },
+  {
+    category: "Data & Databases",
+    items: ["MySQL", "PostgreSQL", "Supabase", "MATLAB", "Excel"],
+  },
+  {
+    category: "Low-Code & Cloud",
+    items: ["Google AppSheet", "Google Sheets", "Apps Script", "WordPress"],
+  },
+  {
+    category: "Tools & Software",
+    items: ["Git", "VS Code", "Visual Studio", "Office 365", "XAMPP"],
+  },
+];
+
 /* ── Experience ───────────────────────────────────────── */
 
 export const experiences: Experience[] = [
   {
     id: "finetech-intern",
     company: "Finetech",
-    role: "Software Engineering Intern",
+    role: "Web Developer Intern",
     department: "Business and Services Department",
-    period: "2024 — Present",
+    period: "November 2025 — February 2026",
     description:
-      "Contributing to cloud-based business process automation solutions within the Business and Services Department, focusing on enterprise document and service management workflows.",
+      "Contributed to cloud-based business process automation solutions, focusing on enterprise document and service management workflows using low-code and web technologies.",
     highlights: [
+      "Developed low-code applications using Google AppSheet to enhance business workflows and automate manual processes.",
+      "Participated in website design projects utilizing WordPress, improving the company's web presence.",
+      "Gained hands-on experience with the Java platform within the JHipster framework for full-stack development.",
       "Led modifications to the Letter Management System, streamlining organisational letter drafting, approval routing, and archival processes.",
       "Enhanced the Internal Service Request Management System with improved request tracking, automated notifications, and multi-level approval workflows.",
-      "Collaborated with cross-functional teams to gather requirements and translate business needs into scalable technical solutions.",
-      "Adopted cloud-native tooling and CI/CD practices to deliver reliable, zero-downtime deployments.",
     ],
     technologies: [
-      "Cloud Platforms",
+      "Google AppSheet",
+      "WordPress",
+      "JHipster",
+      "Java",
       "Business Process Automation",
-      "Workflow Engines",
-      "REST APIs",
-      "Database Design",
+      "Web Development",
     ],
   },
 ];
@@ -137,6 +173,40 @@ export const projects: Project[] = [
       "Automated report generation with exportable PDF summaries.",
     ],
     category: "Web Application",
+  },
+  {
+    id: "school-management",
+    title: "School Management System",
+    description:
+      "A role-based web application for student records, grading, attendance, and automated year promotion workflows.",
+    longDescription:
+      "University project implementing a comprehensive school management system with role-based access for administrators, teachers, and students. The system handles student records, grade entry, attendance tracking, and automated year-end promotion workflows — significantly reducing manual record updates and standardising academic processes.",
+    techStack: ["PHP", "MySQL", "HTML/CSS", "JavaScript", "XAMPP"],
+    highlights: [
+      "Role-based access control for admin, teacher, and student users.",
+      "Standardised grade entry reducing manual record updates significantly.",
+      "Automated year promotion workflows for seamless academic progression.",
+      "Full CRUD operations for student records and attendance.",
+    ],
+    category: "Web Application",
+    repoUrl: "https://github.com/Chamindu-Lakshan",
+  },
+  {
+    id: "quality-management",
+    title: "Online Quality Management System",
+    description:
+      "A product-quality monitoring dashboard with CRUD operations, user management, and batch-level quality tracking.",
+    longDescription:
+      "An academic and personal project building a product-quality dashboard with comprehensive CRUD operations, user management, and batch-level quality monitoring. Features role-specific access controls and navigation, deployed locally with XAMPP for development and testing.",
+    techStack: ["PHP", "MySQL", "JavaScript", "XAMPP"],
+    highlights: [
+      "Batch-level quality monitoring with real-time status tracking.",
+      "User management with role-specific access controls.",
+      "Comprehensive CRUD operations for product data.",
+      "Deployed locally with XAMPP for rapid development.",
+    ],
+    category: "Web Application",
+    repoUrl: "https://github.com/Chamindu-Lakshan",
   },
   {
     id: "avurudu-arcade",
@@ -214,16 +284,45 @@ export const tools: Tool[] = [
 
 export const certifications: Certification[] = [
   {
-    id: "meta-frontend",
-    title: "Meta Front-End Developer Professional Certificate",
-    issuer: "Meta (via Coursera)",
-    date: "2024",
+    id: "javascript-essentials-1",
+    title: "JavaScript Essentials 1",
+    issuer: "Cisco Networking Academy",
+    date: "May 2026",
+    url: "https://www.credly.com/badges/d7cace01-b54c-4abc-aedb-d407dff20f27",
+    image: "/certificates/javascript-essentials-1.pdf",
+    verificationCode: "d7cace01-b54c-4abc-aedb-d407dff20f27",
   },
   {
-    id: "google-cloud",
-    title: "Google Cloud Fundamentals: Core Infrastructure",
-    issuer: "Google Cloud",
+    id: "data-science-python",
+    title: "Data Science Essentials with Python",
+    issuer: "Cisco Networking Academy",
+    date: "February 2026",
+    image: "/certificates/data-science-python.pdf",
+    verificationCode: "cc00e125-bd4e-45d2-9abd-41f189974a3c",
+  },
+  {
+    id: "software-engineering",
+    title: "Software Engineering",
+    issuer: "ICE Institute (Xuetang / NU-SE)",
+    date: "December 2023",
+    image: "/certificates/software-engineering.pdf",
+    verificationCode: "90951973",
+  },
+  {
+    id: "python-beginners",
+    title: "Python for Beginners",
+    issuer: "University of Moratuwa (CODL)",
+    date: "April 2023",
+    url: "https://open.uom.lk/verify",
+    image: "/certificates/python-beginners.pdf",
+    verificationCode: "IFjuFD2Do2",
+  },
+  {
+    id: "skill-for-work",
+    title: "Skills for Work – Professional Development",
+    issuer: "British Council Sri Lanka",
     date: "2024",
+    image: "/certificates/skill-for-work.jpg",
   },
 ];
 

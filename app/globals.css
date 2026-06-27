@@ -23,9 +23,8 @@
 
 /* ── Base ─────────────────────────────────────────────── */
 
-html {
-  scroll-behavior: smooth;
-}
+/* Smooth scrolling is controlled via data-scroll-behavior on <html> in layout.tsx
+   to avoid Next.js route-transition warnings */
 
 body {
   background: var(--background);
