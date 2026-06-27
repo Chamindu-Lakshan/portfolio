@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
+import MouseGlow from "@/components/ui/MouseGlow";
+import AmbientAudio from "@/components/ui/AmbientAudio";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -15,18 +17,28 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Chamindu Wickramasinghe — Full Stack Developer",
+    default: "Chamindu Lakshan | Full Stack Developer",
     template: "%s | wickramasingha.dev",
   },
   description:
-    "Portfolio and Everyday Utility Hub by Chamindu Lakshan Wickramasinghe — Full Stack Developer crafting performant web applications and developer tools.",
+    "Official portfolio of Chamindu Lakshan, a Full Stack Developer specializing in Next.js, React, and business process automation. Explore projects, tools, and professional experience.",
+  keywords: [
+    "Chamindu Lakshan",
+    "Chamindu Lakshan Wickramasinghe",
+    "Full Stack Developer",
+    "Software Engineer",
+    "Sri Lanka",
+    "Next.js Developer",
+    "React Developer",
+    "wickramasingha.dev",
+  ],
   metadataBase: new URL("https://wickramasingha.dev"),
   openGraph: {
-    title: "Chamindu Wickramasinghe — Full Stack Developer",
+    title: "Chamindu Lakshan | Full Stack Developer",
     description:
-      "Portfolio and Everyday Utility Hub by Chamindu Lakshan Wickramasinghe.",
+      "View projects, everyday utility tools, and professional experience of Chamindu Lakshan — Full Stack Developer.",
     url: "https://wickramasingha.dev",
-    siteName: "wickramasingha.dev",
+    siteName: "Chamindu Lakshan Portfolio",
     locale: "en_US",
     type: "website",
     images: [
@@ -34,7 +46,7 @@ export const metadata: Metadata = {
         url: "/images/profile-color.png",
         width: 800,
         height: 800,
-        alt: "Chamindu Lakshan Wickramasinghe",
+        alt: "Chamindu Lakshan Wickramasinghe — Full Stack Developer",
       },
     ],
   },
@@ -123,9 +135,11 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
+        <MouseGlow />
         <Navbar />
         <main className="flex-1">{children}</main>
         <Footer />
+        <AmbientAudio />
       </body>
     </html>
   );

@@ -21,6 +21,7 @@ import {
   skills,
 } from "@/lib/data";
 import CertificationsWrapper from "@/components/CertificationsWrapper";
+import FadeIn from "@/components/ui/FadeIn";
 
 /* ─────────────────────────────────────────────────────────
    Section wrapper component
@@ -80,7 +81,7 @@ function HeroSection() {
             <h1 className="text-4xl font-extrabold leading-tight tracking-tight text-zinc-900 sm:text-5xl lg:text-6xl dark:text-zinc-50">
               Hi, I&apos;m{" "}
               <span className="bg-gradient-to-r from-violet-600 to-purple-600 bg-clip-text text-transparent">
-                Chamindu
+                Chamindu Lakshan
               </span>
             </h1>
 
@@ -424,25 +425,37 @@ function CTABanner() {
 export default function Home() {
   return (
     <>
-      <HeroSection />
+      <FadeIn>
+        <HeroSection />
+      </FadeIn>
 
       <div className="section-divider mx-auto max-w-4xl" />
 
-      <ExperienceSection />
+      <FadeIn delay={0.1}>
+        <ExperienceSection />
+      </FadeIn>
 
       <div className="section-divider mx-auto max-w-4xl" />
 
-      <ProjectsSection />
+      <FadeIn delay={0.1}>
+        <ProjectsSection />
+      </FadeIn>
 
       <div className="section-divider mx-auto max-w-4xl" />
 
-      <SkillsSection />
+      <FadeIn delay={0.1}>
+        <SkillsSection />
+      </FadeIn>
 
       <div className="section-divider mx-auto max-w-4xl" />
 
-      <CertificationsSection />
+      <FadeIn delay={0.1}>
+        <CertificationsSection />
+      </FadeIn>
 
-      <CTABanner />
+      <FadeIn delay={0.1}>
+        <CTABanner />
+      </FadeIn>
     </>
   );
 }

@@ -33,7 +33,7 @@ function ToolIcon({
 
 /* ── Category filter buttons ─────────────────────────── */
 
-const categories: ToolCategory[] = ["all", "text", "image", "developer"];
+const categories: ToolCategory[] = ["all", "text", "image", "developer", "pdf"];
 
 function CategoryFilters({
   active,

@@ -42,7 +42,7 @@ export interface Project {
   repoUrl?: string;
 }
 
-export type ToolCategory = "all" | "text" | "image" | "developer";
+export type ToolCategory = "all" | "text" | "image" | "developer" | "pdf";
 
 export interface Tool {
   id: string;
@@ -81,8 +81,8 @@ export interface SocialLink {
 export const profile: Profile = {
   name: "Chamindu Lakshan Wickramasinghe",
   title: "Full Stack Developer",
-  tagline: "Recent BSc graduate passionate about full-stack web development and business process automation.",
-  bio: "Passionate and recent BSc graduate in Physical Science from the University of Colombo, Faculty of Science. Skilled in full-stack web development and business process automation. Experienced in building dynamic applications using modern frameworks like Next.js and React, alongside cloud platforms such as Supabase and Google AppSheet. Proficient in PHP, MySQL, JavaScript, Python, Java, and C#.",
+  tagline: "Chamindu Lakshan — Full Stack Developer passionate about building performant web applications with Next.js, React, and modern automation tools.",
+  bio: "Chamindu Lakshan Wickramasinghe is a passionate and recent BSc graduate in Physical Science from the University of Colombo, Faculty of Science. As a Full Stack Developer, Chamindu specializes in building dynamic applications using Next.js, React, and Supabase, alongside business process automation with Google AppSheet. Proficient in PHP, MySQL, JavaScript, Python, Java, and C#.",
   university: "University of Colombo",
   faculty: "Faculty of Science",
   year: "BSc Graduate",
@@ -333,4 +333,5 @@ export const toolCategoryLabels: Record<ToolCategory, string> = {
   text: "Text",
   image: "Image",
   developer: "Developer",
+  pdf: "PDF",
 };
