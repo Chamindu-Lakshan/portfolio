@@ -11,6 +11,7 @@ import {
   Wrench,
 } from "lucide-react";
 import { tools, toolCategoryLabels, type ToolCategory } from "@/lib/data";
+import SpotlightCard from "@/components/ui/SpotlightCard";
 
 /* ── Icon resolver ───────────────────────────────────── */
 
@@ -65,37 +66,39 @@ function CategoryFilters({
 
 function ToolCard({ tool }: { tool: (typeof tools)[number] }) {
   return (
-    <Link
-      href={`/tools/${tool.slug}`}
-      className="group relative flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all hover:border-violet-200 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-violet-800"
-    >
-      {/* Gradient icon badge */}
-      <div
-        className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${tool.color} text-white shadow-lg`}
+    <SpotlightCard className="rounded-2xl">
+      <Link
+        href={`/tools/${tool.slug}`}
+        className="group relative flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all hover:border-violet-200 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-violet-800"
       >
-        <ToolIcon name={tool.icon} className="h-6 w-6" />
-      </div>
+        {/* Gradient icon badge */}
+        <div
+          className={`mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-gradient-to-br ${tool.color} text-white shadow-lg`}
+        >
+          <ToolIcon name={tool.icon} className="h-6 w-6" />
+        </div>
 
-      <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
-        {tool.name}
-      </h3>
+        <h3 className="text-lg font-bold text-zinc-900 dark:text-zinc-100">
+          {tool.name}
+        </h3>
 
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-        {tool.description}
-      </p>
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+          {tool.description}
+        </p>
 
-      <div className="mt-5 flex items-center gap-2 text-sm font-medium text-violet-600 transition-colors group-hover:gap-3 dark:text-violet-400">
-        Open tool
-        <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
-      </div>
+        <div className="mt-5 flex items-center gap-2 text-sm font-medium text-violet-600 transition-colors group-hover:gap-3 dark:text-violet-400">
+          Open tool
+          <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+        </div>
 
-      {/* Status badge */}
-      {tool.status === "coming-soon" && (
-        <span className="absolute right-4 top-4 rounded-full bg-amber-100 px-2.5 py-0.5 text-[11px] font-semibold text-amber-700 dark:bg-amber-900/40 dark:text-amber-400">
-          Coming Soon
-        </span>
-      )}
-    </Link>
+        {/* Status badge */}
+        {tool.status === "coming-soon" && (
+          <span className="absolute right-4 top-4 rounded-full bg-amber-100 px-2.5 py-0.5 text-[11px] font-semibold text-amber-700 dark:bg-amber-900/40 dark:text-amber-400">
+            Coming Soon
+          </span>
+        )}
+      </Link>
+    </SpotlightCard>
   );
 }
 

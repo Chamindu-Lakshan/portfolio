@@ -22,6 +22,7 @@ import {
 } from "@/lib/data";
 import CertificationsWrapper from "@/components/CertificationsWrapper";
 import FadeIn from "@/components/ui/FadeIn";
+import SpotlightCard from "@/components/ui/SpotlightCard";
 
 /* ─────────────────────────────────────────────────────────
    Section wrapper component
@@ -240,72 +241,74 @@ function ProjectCard({
   index: number;
 }) {
   return (
-    <div className="group relative flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all hover:border-violet-200 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-violet-800">
-      {/* Project number accent */}
-      <span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-500 to-purple-600 text-xs font-bold text-white shadow-sm">
-        {String(index + 1).padStart(2, "0")}
-      </span>
+    <SpotlightCard className="rounded-2xl">
+      <div className="group relative flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all hover:border-violet-200 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-violet-800">
+        {/* Project number accent */}
+        <span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-500 to-purple-600 text-xs font-bold text-white shadow-sm">
+          {String(index + 1).padStart(2, "0")}
+        </span>
 
-      <span className="mb-2 text-xs font-semibold uppercase tracking-wider text-violet-600 dark:text-violet-400">
-        {project.category}
-      </span>
+        <span className="mb-2 text-xs font-semibold uppercase tracking-wider text-violet-600 dark:text-violet-400">
+          {project.category}
+        </span>
 
-      <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
-        {project.title}
-      </h3>
+        <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
+          {project.title}
+        </h3>
 
-      <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-        {project.description}
-      </p>
+        <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+          {project.description}
+        </p>
 
-      <ul className="mt-4 space-y-1.5">
-        {project.highlights.slice(0, 3).map((h, i) => (
-          <li
-            key={i}
-            className="flex items-start gap-2 text-xs text-zinc-500 dark:text-zinc-500"
-          >
-            <ChevronRight className="mt-0.5 h-3 w-3 shrink-0 text-violet-500" />
-            <span>{h}</span>
-          </li>
-        ))}
-      </ul>
+        <ul className="mt-4 space-y-1.5">
+          {project.highlights.slice(0, 3).map((h, i) => (
+            <li
+              key={i}
+              className="flex items-start gap-2 text-xs text-zinc-500 dark:text-zinc-500"
+            >
+              <ChevronRight className="mt-0.5 h-3 w-3 shrink-0 text-violet-500" />
+              <span>{h}</span>
+            </li>
+          ))}
+        </ul>
 
-      <div className="mt-5 flex flex-wrap gap-1.5">
-        {project.techStack.map((tech) => (
-          <span
-            key={tech}
-            className="rounded-full bg-zinc-100 px-2.5 py-0.5 text-[11px] font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
-          >
-            {tech}
-          </span>
-        ))}
+        <div className="mt-5 flex flex-wrap gap-1.5">
+          {project.techStack.map((tech) => (
+            <span
+              key={tech}
+              className="rounded-full bg-zinc-100 px-2.5 py-0.5 text-[11px] font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
+            >
+              {tech}
+            </span>
+          ))}
+        </div>
+
+        {/* Link placeholder */}
+        <div className="mt-5 flex items-center gap-3 border-t border-zinc-100 pt-4 dark:border-zinc-800">
+          {project.liveUrl && (
+            <a
+              href={project.liveUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-violet-600 transition-colors hover:text-violet-700 dark:text-violet-400 dark:hover:text-violet-300"
+            >
+              <ExternalLink className="h-3.5 w-3.5" />
+              Live Demo
+            </a>
+          )}
+          {project.repoUrl && (
+            <a
+              href={project.repoUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
+            >
+              Source Code
+            </a>
+          )}
+        </div>
       </div>
-
-      {/* Link placeholder */}
-      <div className="mt-5 flex items-center gap-3 border-t border-zinc-100 pt-4 dark:border-zinc-800">
-        {project.liveUrl && (
-          <a
-            href={project.liveUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-violet-600 transition-colors hover:text-violet-700 dark:text-violet-400 dark:hover:text-violet-300"
-          >
-            <ExternalLink className="h-3.5 w-3.5" />
-            Live Demo
-          </a>
-        )}
-        {project.repoUrl && (
-          <a
-            href={project.repoUrl}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 text-sm font-medium text-zinc-600 transition-colors hover:text-zinc-900 dark:text-zinc-400 dark:hover:text-zinc-200"
-          >
-            Source Code
-          </a>
-        )}
-      </div>
-    </div>
+    </SpotlightCard>
   );
 }
 

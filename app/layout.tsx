@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import Link from "next/link";
 import MouseGlow from "@/components/ui/MouseGlow";
 import AmbientAudio from "@/components/ui/AmbientAudio";
+import ParticleNet from "@/components/ui/ParticleNet";
+import PhantomGlows from "@/components/ui/PhantomGlows";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -135,6 +137,8 @@ export default function RootLayout({
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-white text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
+        <ParticleNet />
+        <PhantomGlows />
         <MouseGlow />
         <Navbar />
         <main className="flex-1">{children}</main>
