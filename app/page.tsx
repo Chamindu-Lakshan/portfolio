@@ -138,15 +138,15 @@ function HeroSection() {
 
           {/* Profile photo */}
           <div className="hidden lg:block">
-            <div className="relative h-72 w-72">
+            <div className="relative h-96 w-72">
               <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-violet-500 to-purple-700 shadow-2xl shadow-violet-600/20" />
               <div className="absolute inset-1 overflow-hidden rounded-[20px]">
                 <Image
                   src="/images/profile-color.png"
                   alt="Chamindu Lakshan Wickramasinghe"
                   fill
-                  sizes="280px"
-                  className="object-cover object-top"
+                  sizes="288px"
+                  className="object-cover"
                   priority
                 />
               </div>
@@ -222,6 +222,27 @@ function ExperienceSection() {
                 </span>
               ))}
             </div>
+
+            {exp.reportUrl && (
+              <a
+                href={exp.reportUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-violet-600 transition-colors hover:text-violet-700 dark:text-violet-400 dark:hover:text-violet-300"
+              >
+                <ExternalLink className="h-4 w-4" />
+                View Internship Project Report
+              </a>
+            )}
+            {exp.projectUrl && (
+              <Link
+                href={exp.projectUrl}
+                className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-violet-600 transition-colors hover:text-violet-700 dark:text-violet-400 dark:hover:text-violet-300"
+              >
+                <ExternalLink className="h-4 w-4" />
+                View Project
+              </Link>
+            )}
           </div>
         ))}
       </div>
@@ -243,48 +264,46 @@ function ProjectCard({
   return (
     <SpotlightCard className="rounded-2xl">
       <div className="group relative flex flex-col rounded-2xl border border-zinc-200 bg-white p-6 shadow-sm transition-all hover:border-violet-200 hover:shadow-lg dark:border-zinc-800 dark:bg-zinc-900 dark:hover:border-violet-800">
-        {/* Project number accent */}
-        <span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-500 to-purple-600 text-xs font-bold text-white shadow-sm">
-          {String(index + 1).padStart(2, "0")}
-        </span>
+        <Link href={`/projects/${project.id}`} className="flex flex-1 flex-col rounded-lg focus-visible:outline-none">
+          <span className="mb-4 inline-flex h-8 w-8 items-center justify-center rounded-lg bg-gradient-to-br from-violet-500 to-purple-600 text-xs font-bold text-white shadow-sm">
+            {String(index + 1).padStart(2, "0")}
+          </span>
 
-        <span className="mb-2 text-xs font-semibold uppercase tracking-wider text-violet-600 dark:text-violet-400">
-          {project.category}
-        </span>
+          <span className="mb-2 text-xs font-semibold uppercase tracking-wider text-violet-600 dark:text-violet-400">
+            {project.category}
+          </span>
 
-        <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
-          {project.title}
-        </h3>
+          <h3 className="text-xl font-bold text-zinc-900 dark:text-zinc-100">
+            {project.title}
+          </h3>
 
-        <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
-          {project.description}
-        </p>
+          <p className="mt-2 flex-1 text-sm leading-relaxed text-zinc-600 dark:text-zinc-400">
+            {project.description}
+          </p>
 
-        <ul className="mt-4 space-y-1.5">
-          {project.highlights.slice(0, 3).map((h, i) => (
-            <li
-              key={i}
-              className="flex items-start gap-2 text-xs text-zinc-500 dark:text-zinc-500"
-            >
-              <ChevronRight className="mt-0.5 h-3 w-3 shrink-0 text-violet-500" />
-              <span>{h}</span>
-            </li>
-          ))}
-        </ul>
+          <ul className="mt-4 space-y-1.5">
+            {project.highlights.slice(0, 3).map((h, i) => (
+              <li key={i} className="flex items-start gap-2 text-xs text-zinc-500 dark:text-zinc-500">
+                <ChevronRight className="mt-0.5 h-3 w-3 shrink-0 text-violet-500" />
+                <span>{h}</span>
+              </li>
+            ))}
+          </ul>
 
-        <div className="mt-5 flex flex-wrap gap-1.5">
-          {project.techStack.map((tech) => (
-            <span
-              key={tech}
-              className="rounded-full bg-zinc-100 px-2.5 py-0.5 text-[11px] font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400"
-            >
-              {tech}
-            </span>
-          ))}
-        </div>
+          <div className="mt-5 flex flex-wrap gap-1.5">
+            {project.techStack.map((tech) => (
+              <span key={tech} className="rounded-full bg-zinc-100 px-2.5 py-0.5 text-[11px] font-medium text-zinc-600 dark:bg-zinc-800 dark:text-zinc-400">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </Link>
 
-        {/* Link placeholder */}
         <div className="mt-5 flex items-center gap-3 border-t border-zinc-100 pt-4 dark:border-zinc-800">
+          <Link href={`/projects/${project.id}`} className="inline-flex items-center gap-1.5 text-sm font-medium text-violet-600 transition-colors hover:text-violet-700 dark:text-violet-400 dark:hover:text-violet-300">
+            View Project
+            <ArrowRight className="h-3.5 w-3.5" />
+          </Link>
           {project.liveUrl && (
             <a
               href={project.liveUrl}

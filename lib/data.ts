@@ -28,6 +28,8 @@ export interface Experience {
   description: string;
   highlights: string[];
   technologies: string[];
+  reportUrl?: string;
+  projectUrl?: string;
 }
 
 export interface Project {
@@ -40,6 +42,10 @@ export interface Project {
   category: string;
   liveUrl?: string;
   repoUrl?: string;
+  screenshots?: {
+    src: string;
+    title: string;
+  }[];
 }
 
 export type ToolCategory = "all" | "text" | "image" | "developer" | "pdf";
@@ -152,6 +158,39 @@ export const experiences: Experience[] = [
       "Business Process Automation",
       "Web Development",
     ],
+    reportUrl: "/reports/internship-project-report.pdf",
+  },
+  {
+    id: "eduscore-project",
+    company: "EduScore",
+    role: "Full Stack Project Developer",
+    department: "Delivered Project",
+    period: "2026",
+    description:
+      "Designed and delivered EduScore for Ginthota Maha Vidyalaya as a school grading, evidence review, and quality assessment platform aligned with the Sri Lankan School Quality Standard framework.",
+    highlights: [
+      "Built role-based dashboards for teachers, administrators, and parents.",
+      "Implemented evidence uploads, real-time grade entry, and automated report generation.",
+      "Delivered bilingual English and Sinhala workflows with analytics dashboards.",
+    ],
+    technologies: ["Next.js", "TypeScript", "Supabase", "PostgreSQL", "Tailwind CSS"],
+    projectUrl: "/projects/eduscore",
+  },
+  {
+    id: "lm-aura-project",
+    company: "LM-AURA",
+    role: "Full Stack Project Developer",
+    department: "Delivered Project",
+    period: "2025",
+    description:
+      "Designed and delivered a learning management platform for A/L Geography students with lessons, quizzes, analytics, and administration tools.",
+    highlights: [
+      "Built student learning flows for video lessons, quizzes, scores, and progress tracking.",
+      "Delivered leaderboards, notifications, announcements, and performance analytics.",
+      "Implemented administration workflows for classes, assessments, users, payments, and reports.",
+    ],
+    technologies: ["Next.js", "React", "TypeScript", "Supabase", "Framer Motion"],
+    projectUrl: "/projects/lm-aura",
   },
 ];
 
@@ -162,9 +201,9 @@ export const projects: Project[] = [
     id: "eduscore",
     title: "EduScore",
     description:
-      "A comprehensive school grading and evidence review platform built with Next.js and Supabase.",
+      "A school grading and evidence review platform created for Ginthota Maha Vidyalaya.",
     longDescription:
-      "EduScore streamlines the academic grading process for schools by providing a modern interface for teachers to assign grades, upload evidence of student work, and generate insightful performance reports. Built on Next.js with Supabase as the backend, it offers real-time collaboration, role-based access control, and an intuitive dashboard for administrators.",
+      "EduScore was created for Ginthota Maha Vidyalaya to streamline academic grading, evidence review, and school quality assessment. Built on Next.js with Supabase as the backend, it provides teachers and administrators with evidence uploads, role-based access control, real-time grade entry, and performance reporting.",
     techStack: ["Next.js", "TypeScript", "Supabase", "Tailwind CSS", "PostgreSQL"],
     highlights: [
       "Real-time grade entry with instant feedback and validation.",
@@ -173,6 +212,46 @@ export const projects: Project[] = [
       "Automated report generation with exportable PDF summaries.",
     ],
     category: "Web Application",
+    liveUrl: "https://eduscore.auravexon.tech/",
+    screenshots: [
+      { src: "/project-screenshots/eduscore/01-homepage.png", title: "Homepage" },
+      { src: "/project-screenshots/eduscore/02-school-landing.png", title: "School landing page" },
+      { src: "/project-screenshots/eduscore/03-perspective-overview.png", title: "Perspective overview" },
+      { src: "/project-screenshots/eduscore/04-perspective-detail.png", title: "Perspective detail" },
+      { src: "/project-screenshots/eduscore/05-report-error.png", title: "Process report" },
+      { src: "/project-screenshots/eduscore/06-admin-login.png", title: "Admin login" },
+      { src: "/project-screenshots/eduscore/07-evaluate.png", title: "Evaluation module" },
+      { src: "/project-screenshots/eduscore/12-perspective-detail-dark.png", title: "Dark theme perspective detail" },
+    ],
+  },
+  {
+    id: "lm-aura",
+    title: "LM-AURA",
+    description:
+      "A learning management system for A/L Geography students with lessons, quizzes, analytics, and leaderboards.",
+    longDescription:
+      "LM-AURA combines interactive video lessons, MCQ-based quizzes, performance analytics, competitive leaderboards, and administration tools in one learning platform for A/L Geography students in Sri Lanka.",
+    techStack: ["Next.js", "React", "TypeScript", "Supabase", "Framer Motion", "Recharts"],
+    highlights: [
+      "Video-based geography lessons organised into classes and modules.",
+      "MCQ quiz workflows with scores and performance trends.",
+      "Student dashboards, leaderboards, notifications, and announcements.",
+      "Admin tools for classes, assessments, users, payments, and reports.",
+    ],
+    category: "Learning Platform",
+    screenshots: [
+      { src: "/project-screenshots/lm-aura/01-landing-page.png", title: "Landing page" },
+      { src: "/project-screenshots/lm-aura/02-sign-in.png", title: "Sign-in page" },
+      { src: "/project-screenshots/lm-aura/03-admin-dashboard.png", title: "Admin dashboard" },
+      { src: "/project-screenshots/lm-aura/04-admin-reports.png", title: "Admin reports" },
+      { src: "/project-screenshots/lm-aura/05-admin-payments.png", title: "Payment manager" },
+      { src: "/project-screenshots/lm-aura/06-admin-classes.png", title: "Classes and media" },
+      { src: "/project-screenshots/lm-aura/07-admin-assessments.png", title: "Assessments" },
+      { src: "/project-screenshots/lm-aura/08-admin-users.png", title: "User management" },
+      { src: "/project-screenshots/lm-aura/09-student-dashboard.png", title: "Student dashboard" },
+      { src: "/project-screenshots/lm-aura/10-leaderboard.png", title: "Leaderboard" },
+      { src: "/project-screenshots/lm-aura/11-classes.png", title: "Classes page" },
+    ],
   },
   {
     id: "school-management",
